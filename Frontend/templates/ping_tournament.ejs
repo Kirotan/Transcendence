@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/png" href="/Frontend/assets/public/favicon.webp">
+      <title>Ping Tournament</title>
+      <%- include('links.ejs') %>
+</head>
+<body class=" bg-paper min-h-screen overflow-hidden">
+  <div id="content">
+    <div class="relative flex flex-col items-center translate-y-20">
+      <div id="ping_playersdiv" class="relative hidden flex justify-between items-center w-[320px] h-[50px] 2d-sm:w-[500px] 2d-sm:h-[50px] 2d-md:w-[800px] 2d-md:h-[50px] 2d-lg:w-[1000px] 2d-lg:h-[50px]">
+        <p id="playerOne" class="player-bubble-left top-0 left-0 text-red-500 text-2xl font-canted"></p>
+        <p id="playerTwo" class="player-bubble-right top-0 right-0 text-blue-650 text-2xl font-canted"></p>
+      </div>
+      <div id="div_ping_anim" class="relative flex w-[320px] h-[320px] 2d-sm:w-[500px] 2d-sm:h-[500px] 2d-md:w-[650px] 2d-md:h-[650px]" >
+        <div id="ping_animation_arena" class="bg-ping w-[320px] h-[320px] 2d-sm:w-[500px] 2d-sm:h-[500px] 2d-md:w-[650px] 2d-md:h-[650px]"></div>
+        <canvas id="ping_animation" class="absolute w-[320px] h-[320px] 2d-sm:w-[500px] 2d-sm:h-[500px] 2d-md:w-[650px] 2d-md:h-[650px]"></canvas>
+      </div>
+      <div id="div_ping_game" class="relative hidden flex w-[320px] h-[320px] 2d-sm:w-[500px] 2d-sm:h-[500px] 2d-md:w-[650px] 2d-md:h-[650px]">
+        <div id="pingarena" class="bg-ping w-[320px] h-[320px] sm:w-[500px] 2d-sm:h-[500px] md:w-[650px] 2d-md:h-[650px]"></div>
+        <canvas id="pingCanvas" class="absolute w-[320px] h-[320px] 2d-sm:w-[500px] 2d-sm:h-[500px] 2d-md:w-[650px] 2d-md:h-[650px]"></canvas>
+      </div>
+      <div class="bubble font-canted">
+        <h2 class="font-bold text-2xl">Next Matches:</h2>
+          <div id="next_match1"></div>
+          <div id="next_match2"></div>
+      </div>
+      <div>
+        <p class="mt-8 bubble relative font-canted font-bold text-2xl">Press H to get some help</p>
+      </div>
+      <div id="div_ping_help" class="ping-help hidden absolute z-50 top-0 left-0"></div>
+    </div>
+    <div class="relative flex justify-center mt-24 md:hidden">
+      <button class="arrow-clock w-24 h-24" id="btnDownping"></button>
+      <button class="ml-20 bubble text-2xl font-kablam" onclick="mobile_ready_ping()">START</button>
+      <button class="ml-20 arrow-cclock w-24 h-24" id="btnUpping"></button>
+    </div>
+  </div>
+  <%- include('scripts.ejs') %>
+</body>
+</html>

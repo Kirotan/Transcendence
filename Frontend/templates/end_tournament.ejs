@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="/Frontend/assets/public/favicon.webp">
+    <title>Pong Game - End of Tournament</title>
+      <%- include('/usr/src/app/Frontend/templates/links.ejs') %>
+
+</head>
+<body class=" bg-paper min-h-screen">
+  <%- include('/usr/src/app/Frontend/templates/navbar.ejs') %>
+	<%- include('/usr/src/app/Frontend/templates/sidebar.ejs') %>
+  <div id="content">
+    <br><br><br>
+    <div class="pt-24 px-4 max-w-7xl mx-auto font-canted text-center">
+      <h1 class="bubble text-4xl font-bold mb-8 font-kablam text-black">🏆 TOURNAMENT RANKING 🏆</h1>
+    
+      <% if (classement.length > 0) { %>
+        <div class="relative overflow-x-auto overflow-y-auto mb-12 h-[400px] z-10">
+          <table class="min-w-full text-center font-canted table-fixed">
+            <thead class="bg-black text-white sticky top-0 z-10">
+              <tr>
+                <th class="w-[120px] px-2 py-2">Rank</th>
+                <th class="w-[150px] px-2 py-2">Player</th>
+                <th class="w-[120px] px-2 py-2">Score</th>
+              </tr>
+            </thead>
+            <tbody class="bg-black text-white">
+              <% let oldScore = 0; %>
+              <% let oldPlace = 1; %>
+              <% let Place = 0; %>
+              <% classement.forEach((player, index) => { %>
+                <% if (oldScore == player.score && index != 0) { %>
+                  <% Place = oldPlace %>
+                <% } else { %>
+                  <% Place = index + 1 %>
+                <% } %>
+                <tr class="border-b border-black">
+                  <td class="px-2 py-2 h-[80px]"><%= Place %> 🏅</td>
+                  <td class="px-2 py-2 h-[80px]"><%= player.username %></td>
+                  <td class="px-2 py-2 h-[80px]"><%= player.score %></td>
+                </tr>
+                <% oldScore = player.score %>
+                <% oldPlace = Place %>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <p class="text-center text-lg">No ranking available.</p>
+      <% } %>
+    </div>
+</body>
+</html>
