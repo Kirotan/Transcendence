@@ -83,31 +83,16 @@
 Create a root `.env` (or per‑service `.env`). Example (compose‑style):
 
 ```dotenv
-# --- Global ---
-NODE_ENV=development
-DOMAIN=localhost
-PUBLIC_URL=https://localhost
+DB_FILE=/usr/src/app/dataBase/core.db
+USER_ID=1001
+GROUP_ID=1001
 
-# --- Auth ---
-JWT_ACCESS_TTL=900s
-JWT_REFRESH_TTL=7d
-JWT_SECRET=change_me
-TOTP_ISSUER=ft_transcendence
+COOKIE_SECRET=100
+JWT_SECRET=101
 
-# --- Database ---
-POSTGRES_HOST=db
-POSTGRES_PORT=5432
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_DB=transcendence
-DATABASE_URL=postgresql://postgres:postgres@db:5432/transcendence
-
-# --- Redis (optional) ---
-REDIS_URL=redis://redis:6379
-
-# --- Frontend ---
-VITE_API_BASE=https://localhost/api
-VITE_WS_BASE=wss://localhost/ws
+GF_SECURITY_ADMIN_USER=example
+GF_SECURITY_ADMIN_PASSWORD=example
+GF_SERVER_PROTOCOL=https
 ```
 
 > Add `localhost` mapping to `/etc/hosts` if you use a custom domain in dev.
@@ -129,14 +114,11 @@ cd ft_transcendence
 cp .env.example .env && $EDITOR .env
 
 # 3) Build & run
-make build   # docker compose build
-make up      # docker compose up -d
+make
+make all
+make build 
+make clean
 
-# 4) Tail logs
-make logs
-
-# 5) Stop
-make down
 ```
 
 Open **[https://localhost](https://localhost)** → create account, enable **2FA**, play **Pong** or the **extra game**, check **dashboards**.
