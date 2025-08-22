@@ -113,12 +113,6 @@ cd ft_transcendence
 # 2) Configure env
 cp .env.example .env && $EDITOR .env
 
-# 3) Build & run
-make
-make all
-make build 
-make clean
-
 ```
 
 Open **[https://localhost](https://localhost)** → create account, enable **2FA**, play **Pong** or the **extra game**, check **dashboards**.
@@ -133,8 +127,6 @@ Open **[https://localhost](https://localhost)** → create account, enable **2FA
 make build   # build all images (no cache if configured)
 make up      # start stack in background
 make down    # stop and remove containers
-make logs    # follow logs
-make ps      # show status
 make re      # rebuild & restart (down + build + up)
 make fclean  # remove containers + images + volumes (⚠ data loss)
 ```
