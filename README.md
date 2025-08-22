@@ -193,16 +193,11 @@ ft_transcendence/
 ├── Backend/
 ├── certs/
 ├── Frontend//
-│   ├── nginx/             # reverse proxy, TLS
-│   ├── db/                # migrations/init
-│   └── monitoring/        # prometheus, grafana (optional)
-├── proxy/
 ├── generate_certs_prome.sh
-├── obfuscer.sh
 └── README.md
 ```
 
-> Monorepo layout (Nx/Turborepo optional). Single‑repo also works; adjust paths.
+> Monorepo layout. Single‑repo also works; adjust paths.
 
 ---
 
